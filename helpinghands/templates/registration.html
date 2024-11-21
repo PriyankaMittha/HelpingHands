@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+    <title>index page</title>
+</head>
+<body>
+{% include 'header.html' %}
+<div class="card shadow m-5">
+    <div class="card-body">
+        <h5 class="pt-2 text-danger" style="border-bottom:2px solid orange">Create an Account</h5>
+        <div class="container-fluid">
+        <h1>Donor login!</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+        </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

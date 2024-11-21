@@ -1,0 +1,21 @@
+{% extends "baseforpayment.html" %}
+{% load static %}
+
+{%  block content %}
+    {% if status %}
+    <div class="text-center mt-5">
+        <img src="{% static 'images/sucess1.png' %}" class="img-fluid" style="height:200px">
+        <h2 class="mt-4">Thanks! </h2><br>
+        <h2>Your Payment Has Been Received!</h2>
+    </div>
+    {% else %}
+    <div class="text-center mt-5">
+        <img src="{% static 'images/failure.jpg' %}" class="img-fluid" style="height:200px">
+        <h2 class="mt-4">Sorry! </h2><br>
+        <h2>Your Payment Is Failed! Try again.</h2>
+    </div>
+    {% endif %}
+    <div class="text-center mt-5">
+    <a href="{% url 'indexforpayment' %}" class="btn btn-primary" role="button">Wants to make another payment</a>
+    </div>
+{%  endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+<html>
+<head>
+    <title>index page</title>
+</head>
+<body>
+{% include 'header.html' %}
+<hr class="mt-0">
+<div class="container mt-5">
+        <h2 class="text-center">Login As a...!</h2>
+        <div class="row mt-5">
+            <div class="col-lg-3 card ml-0">
+                <div class="card" style="width: 300px">
+                    <img src="{% static 'images/adminLogin.jpeg' %}" alt="" class="card-img-top" style="width:100%; height:200px">
+                    <div class="card-body">
+                        <h4 class="card-title">Admin</h4>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <a href="{% url 'admin_login' %}" class="btn btn-primary">Go To Admin Login</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 card ml-0">
+                <div class="card" style="width: 300px">
+                    <img src="{% static 'images/donorLogin.webp' %}" alt="" class="card-img-top" style="width:100%; height:200px">
+                    <div class="card-body">
+                        <h4 class="card-title">Donor</h4>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <a href="{% url 'donor_login' %}" class="btn btn-primary">Go To Donor Login</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 card ml-0">
+                <div class="card" style="width: 300px">
+                    <img src="{% static 'images/volunteerLogin.png' %}" alt="" class="card-img-top" style="width:100%; height:200px">
+                    <div class="card-body">
+                        <h4 class="card-title">Volunteer</h4>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <a href="{% url 'volunteer_login' %}" class="btn btn-primary">Go To Volunteer Login</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 card ml-0">
+                <div class="card" style="width: 300px">
+                    <img src="{% static 'images/organizationLogin.webp' %}" alt="" class="card-img-top" style="width:100%; height:200px">
+                    <div class="card-body">
+                        <h4 class="card-title">Organization</h4>
+                        <p class="card-text">Lorem, ipsum dolor.</p>
+                        <a href="{% url 'organization_login' %}" class="btn btn-primary">Go To Organization Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

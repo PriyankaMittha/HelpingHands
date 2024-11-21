@@ -1,0 +1,52 @@
+{%  extends 'baseforpayment.html' %}
+{% load static %}
+{%  load crispy_forms_tags %}
+
+{% block content %}
+    <div class="text-center mt-5">
+        <img src="{% static 'images/logo.jpg' %}" class="img-fluid" style="height:200px">
+    </div>
+    <h2 style="text-align : center; ">Donate Money</h2>
+    <div class="container" style="width:40%; background-color:#6a5acd;">
+        {% crispy form %}
+
+        <br>
+        {% if payment %}
+        <form action="{% url 'successforpayment' %}" method="POST">
+            {% csrf_token %}
+       <button id="rzp-button1">Pay</button>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js">
+</script>
+<script>
+var options = {
+    "key": "rzp_test_eNnWDVb2Sd8t8l", // Enter the Key ID generated from the Dashboard
+    "amount": "{{ payment.amount }}", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "{{ payment.currency }}",
+    "name": "Helping Hands", //your business name
+    "description": "One person can't change the world, but One person can change One person life!",
+    "image": "https://example.com/your_logo",
+    "order_id": "{{ payment.id }}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        "name": "{{ payment.name }}", //your customer's name
+        "email": "you@example.com",
+        "contact": "9000090000" //Provide the customer's phone number for better conversion rates
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</form>
+   {% endif %}
+    </div>
+{% endblock %}

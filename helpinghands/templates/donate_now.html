@@ -1,0 +1,79 @@
+{% extends 'donor_base.html' %}
+{% block main %}
+<body>
+<div class="card shadow mt-3">
+   <div class="card-body ">
+       <h5 class="p-2" style="border-bottom:2px solid orange">Donate Now</h5>
+       <div class="container-fluid">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <label>Donation Name <span style="color:red">(Note : If u select other , please mention details in description field)</span></label>
+                        <select name="donationname" class="form-control" required>
+                            <option value="Food Donation">Food Donation</option>
+                            <option value="Books Donation">Books Donation</option>
+                            <option value="Cloths Donation">Cloths Donation</option>
+                            <option value="Footwear Donation">Footwear Donation</option>
+                            <option value="Furniture Donation">Furniture Donation</option>
+                            <option value="Vessel Donation">Vessel Donation</option>
+                            <option value="Toy Donation">Toy Donation</option>
+                            <option value="Money Donation">Money Donation</option>
+                            <option value="other Donation">other Donation</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                        <label>Click here to donate as a money</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                        <a href="{% url 'indexforpayment' %}" >Money Donation</a>
+
+                    </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <label>Donation Image</label>
+                        <input type="file" name="donationpic" class="form-control" placeholder="Enter photo" required>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <label>Donation Collection Address </label>
+f                        <textarea name="collectionloc" class="form-control" placeholder="Enter donation collection address" required></textarea>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <label>Description (Special Note)</label>
+                        <input type="text" name="description" class="form-control" placeholder="Special Note for Donation" required></input>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Donate Happiness" class="btn btn-danger px-3 ">
+            </form>
+       </div>
+   </div>
+</div>
+{% if error == "yes" %}
+<script>
+     alert('Something went Wrong, Try Again..!');
+</script>
+{% endif %}
+
+{% if error == "no" %}
+<script>
+    alert('Donation collection request has been sent. We will contact you soon.');
+    window.location.href = "{% url 'donation_history' %}";
+</script>
+{% endif %}
+{% endblock %}
+</body>

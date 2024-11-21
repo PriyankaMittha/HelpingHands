@@ -1,0 +1,56 @@
+
+.nav-link{
+    color :white !important;
+    font-size: 20px;
+}
+.navbar-brand{
+    font-family: 'Monotype Corsiva';
+    font-size: 35px;
+    font-wight: bold;
+}
+.nav-link:hover{
+    color : #800080 !important;
+    background-color:yellow;
+    border-radius:35px;
+}
+#footer a,#contact a{
+color:#EE1D29;
+}
+#footer a:hover{
+color:yellow;
+}
+#contact a:hover{
+color:red;
+}
+
+#scrollbtn{
+position:fixed;
+bottom:20px;
+right:40px;
+z-index:99;
+border:none;
+color:red;
+background:#00abff;
+padding:10px;
+border-radius:10px;
+}
+html{
+scroll-behaviour:smooth;
+}
+
+/*login page css start*/
+#login{
+ background-size:100%;
+ background-repeat:no-repeat;
+ opacity:0.8;
+ background-position: 0px 80px;
+}
+/*login page css end*/
+/*signup page css start*/
+#signupform{
+background:url('/static/images/food.jpg');
+}
+
+
+
+

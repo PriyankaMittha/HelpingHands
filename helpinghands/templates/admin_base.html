@@ -1,0 +1,154 @@
+{% load static %}
+<html>
+<body>
+<title>Helping hands</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include Bootstrap CSS and JQuery -->
+<!-- Include Bootstrap CSS and JQuery -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<!-- Include Font Awesome CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.6/css/dataTables.dataTables.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css">
+<!-- vertical navbar start -->
+<div class="vertical-nav bg-white" id="sidebar">
+    <div class="py-4 px-3 mb-1 bg-light">
+        <p class="text-center font-weight-bold text-uppercase px-3 small dashboard-text">Helping Hands</p>
+        <div class="media d-flex align-items-center">
+            <img src="{% static 'images/adminLogin.jpeg' %}" width="80" height="80" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+            <div class="media-body">
+                <h4 class="mt-0">Admin</h4>
+                <p class="text-muted mb-0">{{request.user.username}}</p>
+            </div>
+        </div>
+    </div>
+
+    <ul class="nav flex-column bg-white">
+        <li class="nav-item">
+            <a href="{% url 'admin_home' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'pending_donation' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                New Donation Request
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'accepted_donation' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Accepted Donations
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'add_area' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Add Organization
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'manage_area' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Manage Organization
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'manage_donor' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Manage Donor
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'new_volunteer' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Manage Volunteer
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'accepted_volunteer' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Accepted Volunteer
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'rejected_volunteer' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                Rejected Volunteer
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="{% url 'all_volunteer' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-tachometer-alt fa-fw mr-3 text-primary"></i>
+                All Volunteer
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{% url 'logout' %}" class="nav-link text-dark bg-light">
+                <i class="fas fa-cog mr-3 text-primary fa-fw"></i>
+                Logout
+            </a>
+        </li>
+    </ul>
+</div>
+<!--- vertical navbar ends--->
+<!--- page content holder--->
+<div class="page-content p-4" id="content">
+    <a href="{% url 'logout' %}" title="Logout" class="float-right text-white"> <!-- Changed text-white to text-dark -->
+  <i class="fa fa-arrow-circle-right"></i>
+
+</a>
+
+    <!--toggle btn-->
+    <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill">
+        <i class="fas fa-bars mr-2"></i>
+        <small class="text-uppercase font-weight-bold">Toggle</small>
+    </button>
+    <!--end toggle btn-->
+    {% block main %}
+    {% endblock %}
+</div>
+<script src="https://cdn.datatables.net/2.0.6/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+
+<script>
+     new DataTable('#example', {
+    layout: {
+        topStart: {
+            buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+        }
+    },
+    paging: true // Add this line to enable pagination
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+{% extends 'admin_base.html' %}
+{% block main %}
+<body>
+<div class="card shadow mt-3">
+   <div class="card-body ">
+       <h5 class="p-2" style="border-bottom:2px solid orange">Add Organization</h5>
+       <div class="container-fluid">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <label>Donation Organization Name</label>
+                       <input type="text" name="areaname" class="form-control" placeholder="Enter donation collection organization" required></input>
+                    </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <label>Address</label>
+                        <textarea name="address" class="form-control" placeholder="Enter Address" required></textarea >
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" placeholder="Enter Description" required></textarea >
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="SUBMIT" class="btn btn-danger px-3 ">
+            </form>
+       </div>
+   </div>
+</div>
+{% if error == "yes" %}
+<script>
+     alert('Something went Wrong, Try Again..!');
+</script>
+{% endif %}
+
+{% if error == "no" %}
+<script>
+    alert('Donation area has been added');
+    window.location.href = "{% url 'manage_area' %}";
+</script>
+{% endif %}
+{% endblock %}
+</body>

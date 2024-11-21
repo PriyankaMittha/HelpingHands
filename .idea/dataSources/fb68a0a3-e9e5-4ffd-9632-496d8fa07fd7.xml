@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.52">
+    <root id="1">
+      <ServerVersion>3.45.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+    </schema>
+    <table id="3" parent="2" name="auth_group"/>
+    <table id="4" parent="2" name="auth_group_permissions"/>
+    <table id="5" parent="2" name="auth_permission"/>
+    <table id="6" parent="2" name="auth_user"/>
+    <table id="7" parent="2" name="auth_user_groups"/>
+    <table id="8" parent="2" name="auth_user_user_permissions"/>
+    <table id="9" parent="2" name="django_admin_log"/>
+    <table id="10" parent="2" name="django_content_type"/>
+    <table id="11" parent="2" name="django_migrations"/>
+    <table id="12" parent="2" name="django_session"/>
+    <table id="13" parent="2" name="helpinghands_donation"/>
+    <table id="14" parent="2" name="helpinghands_donor"/>
+    <table id="15" parent="2" name="helpinghands_gallery"/>
+    <table id="16" parent="2" name="helpinghands_organization"/>
+    <table id="17" parent="2" name="helpinghands_paymentdetails"/>
+    <table id="18" parent="2" name="helpinghands_volunteer"/>
+    <table id="19" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="20" parent="2" name="sqlite_sequence">
+      <System>1</System>
+    </table>
+    <column id="21" parent="3" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="22" parent="3" name="name">
+      <DasType>varchar(150)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <index id="23" parent="3" name="sqlite_autoindex_auth_group_1">
+      <ColNames>name</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="24" parent="4" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="25" parent="4" name="group_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="26" parent="4" name="permission_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <foreign-key id="27" parent="4">
+      <ColNames>group_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>auth_group</RefTableName>
+    </foreign-key>
+    <foreign-key id="28" parent="4">
+      <ColNames>permission_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>auth_permission</RefTableName>
+    </foreign-key>
+    <index id="29" parent="4" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+      <ColNames>group_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY
+BINARY</ColumnCollationNames>
+    </index>
+    <index id="30" parent="4" name="auth_group_permissions_group_id_b120cbf9">
+      <ColNames>group_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <index id="31" parent="4" name="auth_group_permissions_permission_id_84c5c92e">
+      <ColNames>permission_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="32" parent="5" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="33" parent="5" name="content_type_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="34" parent="5" name="codename">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="35" parent="5" name="name">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="36" parent="5">
+      <ColNames>content_type_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>django_content_type</RefTableName>
+    </foreign-key>
+    <index id="37" parent="5" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+      <ColNames>content_type_id
+codename</ColNames>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY
+BINARY</ColumnCollationNames>
+    </index>
+    <index id="38" parent="5" name="auth_permission_content_type_id_2f476e4b">
+      <ColNames>content_type_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="39" parent="6" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="40" parent="6" name="password">
+      <DasType>varchar(128)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="41" parent="6" name="last_login">
+      <DasType>datetime|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="42" parent="6" name="is_superuser">
+      <DasType>bool|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="43" parent="6" name="username">
+      <DasType>varchar(150)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="44" parent="6" name="last_name">
+      <DasType>varchar(150)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="45" parent="6" name="email">
+      <DasType>varchar(254)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="46" parent="6" name="is_staff">
+      <DasType>bool|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="47" parent="6" name="is_active">
+      <DasType>bool|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="48" parent="6" name="date_joined">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="49" parent="6" name="first_name">
+      <DasType>varchar(150)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <index id="50" parent="6" name="sqlite_autoindex_auth_user_1">
+      <ColNames>username</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="51" parent="7" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="52" parent="7" name="user_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="53" parent="7" name="group_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <foreign-key id="54" parent="7">
+      <ColNames>user_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>auth_user</RefTableName>
+    </foreign-key>
+    <foreign-key id="55" parent="7">
+      <ColNames>group_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>auth_group</RefTableName>
+    </foreign-key>
+    <index id="56" parent="7" name="auth_user_groups_user_id_group_id_94350c0c_uniq">
+      <ColNames>user_id
+group_id</ColNames>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY
+BINARY</ColumnCollationNames>
+    </index>
+    <index id="57" parent="7" name="auth_user_groups_group_id_97559544">
+      <ColNames>group_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <index id="58" parent="7" name="auth_user_groups_user_id_6a12ed8b">
+      <ColNames>user_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="59" parent="8" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="60" parent="8" name="user_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="61" parent="8" name="permission_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <foreign-key id="62" parent="8">
+      <ColNames>user_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>auth_user</RefTableName>
+    </foreign-key>
+    <foreign-key id="63" parent="8">
+      <ColNames>permission_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>auth_permission</RefTableName>
+    </foreign-key>
+    <index id="64" parent="8" name="auth_user_user_permissions_user_id_permission_id_14a6b632_uniq">
+      <ColNames>user_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY
+BINARY</ColumnCollationNames>
+    </index>
+    <index id="65" parent="8" name="auth_user_user_permissions_permission_id_1fbb5f2c">
+      <ColNames>permission_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <index id="66" parent="8" name="auth_user_user_permissions_user_id_a95ead1b">
+      <ColNames>user_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="67" parent="9" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="68" parent="9" name="object_id">
+      <DasType>TEXT|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="69" parent="9" name="object_repr">
+      <DasType>varchar(200)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="70" parent="9" name="action_flag">
+      <DasType>smallint unsigned|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="71" parent="9" name="change_message">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="72" parent="9" name="content_type_id">
+      <DasType>INTEGER|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="73" parent="9" name="user_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="74" parent="9" name="action_time">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <foreign-key id="75" parent="9">
+      <ColNames>content_type_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>django_content_type</RefTableName>
+    </foreign-key>
+    <foreign-key id="76" parent="9">
+      <ColNames>user_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>auth_user</RefTableName>
+    </foreign-key>
+    <index id="77" parent="9" name="django_admin_log_content_type_id_c4bce8eb">
+      <ColNames>content_type_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <index id="78" parent="9" name="django_admin_log_user_id_c564eba6">
+      <ColNames>user_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="79" parent="10" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="80" parent="10" name="app_label">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="81" parent="10" name="model">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <index id="82" parent="10" name="django_content_type_app_label_model_76bd3d3b_uniq">
+      <ColNames>app_label
+model</ColNames>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY
+BINARY</ColumnCollationNames>
+    </index>
+    <column id="83" parent="11" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="84" parent="11" name="app">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="85" parent="11" name="name">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="86" parent="11" name="applied">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="87" parent="12" name="session_key">
+      <DasType>varchar(40)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="88" parent="12" name="session_data">
+      <DasType>TEXT|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="89" parent="12" name="expire_date">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <index id="90" parent="12" name="sqlite_autoindex_django_session_1">
+      <ColNames>session_key</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <Unique>1</Unique>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <index id="91" parent="12" name="django_session_expire_date_a5c62663">
+      <ColNames>expire_date</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <column id="92" parent="13" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="93" parent="13" name="donationname">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="94" parent="13" name="donationpic">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="95" parent="13" name="collectionloc">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="96" parent="13" name="description">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="97" parent="13" name="status">
+      <DasType>varchar(50)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="98" parent="13" name="donationdate">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="99" parent="13" name="adminremark">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>8</Position>
+    </column>
+    <column id="100" parent="13" name="updationdate">
+      <DasType>date|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="101" parent="13" name="donor_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+    </column>
+    <column id="102" parent="13" name="volunteer_id">
+      <DasType>bigint|0s</DasType>
+      <Position>11</Position>
+    </column>
+    <column id="103" parent="13" name="volunteerremark">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>12</Position>
+    </column>
+    <column id="104" parent="13" name="donationarea_id">
+      <DasType>bigint|0s</DasType>
+      <Position>13</Position>
+    </column>
+    <index id="105" parent="13" name="helpinghands_donation_donationarea_id_62294311">
+      <ColNames>donationarea_id</ColNames>
+      <ColumnCollationNames>BINARY</ColumnCollationNames>
+    </index>
+    <index id="106" parent="13" name="helpinghands_donation_donor_id_755d563e"/>
+    <index id="107" parent="13" name="helpinghands_donation_volunteer_id_1ab8639e"/>
+    <column id="108" parent="14" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="109" parent="14" name="contact">
+      <DasType>varchar(15)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="110" parent="14" name="address">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="111" parent="14" name="userpic">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="112" parent="14" name="regdate">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="113" parent="14" name="user_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="114" parent="15" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="115" parent="15" name="deliverypic">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="116" parent="15" name="creationdate">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="117" parent="15" name="donation_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="118" parent="16" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="119" parent="16" name="areaname">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="120" parent="16" name="description">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="121" parent="16" name="creationdate">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="122" parent="16" name="address">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="123" parent="17" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="124" parent="17" name="name">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="125" parent="17" name="amount">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="126" parent="17" name="donationarea_id">
+      <DasType>bigint|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="127" parent="17" name="transaction_id">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="128" parent="17" name="razorpay_payment_id">
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="129" parent="17" name="paid">
+      <DasType>bool|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="130" parent="18" name="id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="131" parent="18" name="contact">
+      <DasType>varchar(15)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="132" parent="18" name="address">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="133" parent="18" name="userpic">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="134" parent="18" name="idpic">
+      <DasType>varchar(100)|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="135" parent="18" name="aboutme">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="136" parent="18" name="status">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <column id="137" parent="18" name="regdate">
+      <DasType>datetime|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="138" parent="18" name="adminremark">
+      <DasType>varchar(300)|0s</DasType>
+      <Position>9</Position>
+    </column>
+    <column id="139" parent="18" name="updationdate">
+      <DasType>date|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="140" parent="18" name="user_id">
+      <DasType>INTEGER|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <column id="141" parent="19" name="type">
+      <DasType>TEXT|0s</DasType>
+      <Position>1</Position>
+    </column>
+    <column id="142" parent="19" name="name">
+      <DasType>TEXT|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="143" parent="19" name="tbl_name">
+      <DasType>TEXT|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="144" parent="19" name="rootpage">
+      <DasType>INT|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="145" parent="19" name="sql">
+      <DasType>TEXT|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="146" parent="20" name="name">
+      <Position>1</Position>
+    </column>
+    <column id="147" parent="20" name="seq">
+      <Position>2</Position>
+    </column>
+  </database-model>
+</dataSource>
